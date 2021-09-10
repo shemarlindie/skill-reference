@@ -1,0 +1,30 @@
+<div>
+  <div *ngIf="!project">
+    Loading project...
+  </div>
+  <div @fadeAnimation *ngIf="project">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="stretch stretch">
+      <div fxFlex>
+        <h2>{{project.name}}</h2>
+
+        <p>{{project.description}}</p>
+
+        <a [href]="project.link" mat-button class="mat-primary">View Live Link</a>
+      </div>
+
+      <mat-divider vertical="true"></mat-divider>
+
+      <div fxFlex>
+        <mat-list role="list">
+          <div mat-subheader>Skills</div>
+          <mat-divider></mat-divider>
+          <mat-list-item *ngFor="let skill of project.skills" role="listitem">
+            <i matListIcon class="devicon-{{skill.icon}}-plain colored"></i>
+            <h3 mat-line>{{skill.name}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>

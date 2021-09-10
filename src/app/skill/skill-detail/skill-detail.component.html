@@ -1,0 +1,27 @@
+<div>
+  <h2 fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon><i class="devicon-{{skill.icon}}-plain colored"></i></mat-icon>
+    &nbsp;
+    <span>{{skill.name}}</span>
+  </h2>
+
+  <mat-action-list role="list">
+    <div mat-subheader>Projects</div>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let project of projects" (click)="showProjectDetail(project)" role="listitem">
+      <div mat-line fxLayout="row" fxLayoutAlign="start center">
+        <b>{{project.name}}</b>
+        &nbsp;
+        <mat-icon *ngIf="project.link">link</mat-icon>
+        <span fxFlex></span>
+        <div fxLayout="row">
+          <div title="{{skill.name}}" *ngFor="let skill of project.skills" class="skill-icon-list devicon-{{skill.icon}}-plain colored"></div>
+        </div>
+      </div>
+
+      <div mat-line>{{project.description}}</div>
+
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-action-list>
+</div>

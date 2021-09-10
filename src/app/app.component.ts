@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {MatButtonToggleChange} from "@angular/material/button-toggle";
-import {fadeAnimation, listAnimation} from "./app.animation";
+import {fadeAnimation} from "./app.animation";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
-  animations: [fadeAnimation, listAnimation]
+  animations: [fadeAnimation]
 })
 export class AppComponent {
   title = 'Skill Reference';

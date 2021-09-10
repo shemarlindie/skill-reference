@@ -2,7 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {ListResponse} from "./list-response";
+import {ListResponse} from "../utils/models/list-response";
 import {Skill} from "./skill";
 
 @Injectable()

@@ -19,9 +19,7 @@
       <div *ngFor="let section of sections">
         <div @fadeAnimation *ngIf="section == currentSection">
           <skill-list *ngIf="section == 'skills'"></skill-list>
-          <div *ngIf="section == 'projects'">
-            {{section | uppercase}}
-          </div>
+          <project-list *ngIf="section == 'projects'"></project-list>
         </div>
       </div>
     </div>

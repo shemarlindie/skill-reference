@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {SkillService} from "./skill/skill.service";
 import {SkillModule} from "./skill/skill.module";
 import {GLOBAL_MODULES} from "./global-modules";
+import {ProjectModule} from "./project/project.module";
 
 @NgModule({
   declarations: [
@@ -31,8 +32,8 @@ import {GLOBAL_MODULES} from "./global-modules";
     GLOBAL_MODULES,
 
     SkillModule,
+    ProjectModule,
   ],
-  providers: [SkillService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

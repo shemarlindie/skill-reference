@@ -6,7 +6,6 @@
 <!--      <mat-label>Search skills...</mat-label>-->
       <input matInput #searchInput type="search" autocomplete="off" placeholder="Search skills..."
              [(ngModel)]="searchText"
-             (input)="searchInputChange($event)"
              tabindex="-1"
              autofocus>
       <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchClick($event)">
@@ -27,7 +26,7 @@
         <mat-card-subtitle>{{skill.project_count}} project(s)</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <button mat-button class="mat-primary">View Projects</button>
+        <button mat-button (click)="showSkillDetail(skill)" class="mat-primary">View Projects</button>
       </mat-card-actions>
     </mat-card>
   </div>

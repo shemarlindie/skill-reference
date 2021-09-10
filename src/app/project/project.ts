@@ -1,4 +1,4 @@
-import {Skill} from "./skill";
+import {Skill} from "../skill/skill";
 
 export interface Project {
   id: number
@@ -7,6 +7,7 @@ export interface Project {
   date_updated: Date,
   name: string,
   description: string,
+  link?: string,
   visible: boolean,
   created_by?: number,
   modified_by?: number,

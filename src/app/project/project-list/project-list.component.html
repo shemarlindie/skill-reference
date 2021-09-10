@@ -1,0 +1,37 @@
+<div>
+  <br>
+  <br>
+<!--  <div class="project-search-container" fxLayout="row" fxLayoutAlign="center center">-->
+<!--    <mat-icon>search</mat-icon>-->
+<!--    <mat-form-field fxFlex="40" fxFlex.lt-md="80" appearance="standard" floatLabel="never">-->
+<!--&lt;!&ndash;      <mat-label>Search projects...</mat-label>&ndash;&gt;-->
+<!--      <input matInput #searchInput type="search" autocomplete="off" placeholder="Search projects..."-->
+<!--             [(ngModel)]="searchText"-->
+<!--             (input)="searchInputChange($event)"-->
+<!--             tabindex="-1"-->
+<!--             autofocus>-->
+<!--      <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchClick($event)">-->
+<!--        <mat-icon>close</mat-icon>-->
+<!--      </button>-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+<!--  <br>-->
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="start center" fxLayoutGap="15px">
+    <mat-card class="project-card" *ngFor="let project of projects | filter:'name':searchText">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon class="project-icon">dashboard</mat-icon>
+        </div>
+        <mat-card-title>{{project.name}}</mat-card-title>
+        <mat-card-subtitle>{{project.skill_count}} skills(s)</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{project.description}}</p>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-button (click)="showProjectDetail(project)" class="mat-primary">View Details</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

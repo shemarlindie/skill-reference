@@ -1,7 +1,9 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {SkillService} from "./skill.service";
-import {Skill} from "./skill"
-import {fadeAnimation, listAnimation} from "../app.animation";
+import {SkillService} from "../skill.service";
+import {Skill} from "../skill"
+import {fadeAnimation, listAnimation} from "../../app.animation";
+import {MatBottomSheet} from "@angular/material/bottom-sheet";
+import {SkillDetailComponent} from "../skill-detail/skill-detail.component";
 
 @Component({
   selector: 'skill-list',
@@ -16,7 +18,7 @@ export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('searchInput') searchInput?: ElementRef
 
-  constructor(public skillService: SkillService) {
+  constructor(private skillService: SkillService, private bottomSheet: MatBottomSheet) {
 
   }
 
@@ -41,10 +43,6 @@ export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  searchInputChange(event: any) {
-    // console.log('filter', event)
-  }
-
   clearSearchClick(event: any) {
     this.searchText = ''
     this.cacheSearchText()
@@ -62,7 +60,9 @@ export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-  loadSkillProjects(skill: Skill) {
-
+  showSkillDetail(skill: Skill) {
+    const bottomSheetRef = this.bottomSheet.open(SkillDetailComponent, {
+      data: {skill: skill}
+    });
   }
 }

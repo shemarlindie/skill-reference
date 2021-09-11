@@ -51,7 +51,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   loadProjects() {
     console.log('loading projects...')
-    this.projectService.list().subscribe((data) => {
+    this.projectService.list({limit: 100}).subscribe((data) => {
       console.log('got projects', data)
       this.projects = data.results
     })

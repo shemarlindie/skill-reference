@@ -10,8 +10,10 @@ export class SkillService {
 
   constructor(private http: HttpClient) { }
 
-  public list(): Observable<ListResponse<Skill>> {
-    return this.http.get<ListResponse<Skill>>(`${environment.apiUrl}/skill/skills/`)
+  public list(
+    params?: { [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean> }
+  ): Observable<ListResponse<Skill>> {
+    return this.http.get<ListResponse<Skill>>(`${environment.apiUrl}/skill/skills/`, {params: params})
   }
 
   public get(id: number): Observable<Skill> {

@@ -54,7 +54,7 @@ export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   loadSkills() {
     console.log('loading skills...')
-    this.skillService.list().subscribe((data) => {
+    this.skillService.list({limit: 100}).subscribe((data) => {
       console.log('got skills', data)
       this.skills = data.results
     })

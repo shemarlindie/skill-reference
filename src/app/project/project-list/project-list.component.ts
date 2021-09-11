@@ -3,15 +3,19 @@ import {Project} from "../project";
 import {ProjectService} from "../project.service";
 import {ProjectDetailComponent} from "../project-detail/project-detail.component";
 import {MatDialog} from "@angular/material/dialog";
+import {fadeAnimation} from "../../app.animation";
 
 @Component({
   selector: 'project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.sass'],
+  animations: [fadeAnimation],
 })
 export class ProjectListComponent implements OnInit, AfterViewInit, OnDestroy {
   projects: Project[] = []
   searchText = ''
+  loading: boolean = true
+  error: any = undefined
 
   @ViewChild('searchInput') searchInput?: ElementRef
 
@@ -51,10 +55,18 @@ export class ProjectListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   loadProjects() {
     console.log('loading projects...')
-    this.projectService.list({limit: 100}).subscribe((data) => {
-      console.log('got projects', data)
-      this.projects = data.results
-    })
+    this.projectService.list({limit: 100}).subscribe(
+      (data) => {
+        console.log('got projects', data)
+        this.projects = data.results
+        this.loading = false
+        this.error = undefined
+      },
+      (error) => {
+        this.loading = false
+        this.error = error
+      }
+    )
   }
 
   showProjectDetail(project: Project) {

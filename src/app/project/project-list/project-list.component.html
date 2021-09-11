@@ -16,8 +16,21 @@
 <!--    </mat-form-field>-->
 <!--  </div>-->
 <!--  <br>-->
+  <div *ngIf="loading" fxLayoutAlign="center">
+    <mat-spinner diameter="40" strokeWidth="1"></mat-spinner>
+  </div>
 
-  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="start center" fxLayoutGap="15px">
+  <div *ngIf="!loading && error" @fadeAnimation fxLayoutAlign="center" class="mat-subheader mat-error">
+    <span>error loading projects</span>
+  </div>
+
+  <div *ngIf="!loading && !error && !projects.length" @fadeAnimation fxLayoutAlign="center" class="mat-subheader">
+    <span>no projects</span>
+  </div>
+
+  <div *ngIf="!loading && !error && projects.length" @fadeAnimation
+       fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center start"
+       fxLayoutAlign.lt-md="start center" fxLayoutGap="15px">
     <mat-card class="project-card" *ngFor="let project of projects | filter:'name':searchText">
       <mat-card-header>
         <div mat-card-avatar>

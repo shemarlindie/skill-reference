@@ -12,6 +12,8 @@ import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {MatListModule} from "@angular/material/list";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 export const GLOBAL_MODULES = [
   UtilsModule,
@@ -29,4 +31,6 @@ export const GLOBAL_MODULES = [
   MatListModule,
   MatDividerModule,
   MatDialogModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
 ]

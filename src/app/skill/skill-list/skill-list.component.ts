@@ -9,12 +9,14 @@ import {SkillDetailComponent} from "../skill-detail/skill-detail.component";
   selector: 'skill-list',
   templateUrl: './skill-list.component.html',
   styleUrls: ['./skill-list.component.sass'],
-  animations: [fadeAnimation, listAnimation]
+  animations: [fadeAnimation],
 })
 export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
   title = 'Skill List'
   skills: Skill[] = []
   searchText = ''
+  loading: boolean = true
+  error: any = undefined
 
   @ViewChild('searchInput') searchInput?: ElementRef
 
@@ -54,10 +56,18 @@ export class SkillListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   loadSkills() {
     console.log('loading skills...')
-    this.skillService.list({limit: 100}).subscribe((data) => {
-      console.log('got skills', data)
-      this.skills = data.results
-    })
+    this.skillService.list({limit: 100}).subscribe(
+      (data) => {
+        console.log('got skills', data)
+        this.skills = data.results
+        this.loading = false
+        this.error = undefined
+      },
+      (error) => {
+        this.loading = false
+        this.error = error
+      }
+    )
   }
 
   showSkillDetail(skill: Skill) {

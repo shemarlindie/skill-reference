@@ -7,7 +7,17 @@
     <button (click)="dismissSheet()" mat-icon-button><mat-icon>close</mat-icon></button>
   </h2>
 
-  <mat-action-list role="list">
+  <div *ngIf="loading" fxLayoutAlign="center" class="sheet-loading-container">
+    <mat-spinner diameter="40" strokeWidth="1"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading && error" @fadeAnimation fxLayoutAlign="center" class="mat-subheader mat-error">
+    error loading projects
+  </div>
+
+  <div *ngIf="!loading && !error && !projects.length" @fadeAnimation fxLayoutAlign="center" class="mat-subheader">no projects</div>
+
+  <mat-action-list *ngIf="!loading && !error && projects.length" @fadeAnimation role="list">
     <div mat-subheader>{{skill.project_count}} Project(s)</div>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let project of projects" (click)="showProjectDetail(project)" role="listitem">

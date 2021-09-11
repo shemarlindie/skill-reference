@@ -3,7 +3,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Skill} from "../skill"
 import {Project} from "../../project/project";
 import {ProjectService} from "../../project/project.service";
-import {MAT_BOTTOM_SHEET_DATA} from "@angular/material/bottom-sheet";
+import {MAT_BOTTOM_SHEET_DATA, MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MatDialog} from "@angular/material/dialog";
 import {ProjectDetailComponent} from "../../project/project-detail/project-detail.component";
 
@@ -19,7 +19,8 @@ export class SkillDetailComponent implements OnInit {
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: {skill: Skill},
     private projectService: ProjectService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private sheet: MatBottomSheet
   ) {
     this.skill = data.skill
   }
@@ -41,6 +42,10 @@ export class SkillDetailComponent implements OnInit {
 
   showProjectDetail(project: Project) {
     console.log('details for project', project)
-    this.dialog.open(ProjectDetailComponent, {data: {projectId: project.id}})
+    this.dialog.open(ProjectDetailComponent, {data: {project: project}})
+  }
+
+  dismissSheet() {
+    this.sheet.dismiss()
   }
 }

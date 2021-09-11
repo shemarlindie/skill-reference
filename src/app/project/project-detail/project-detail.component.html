@@ -9,7 +9,7 @@
 
         <p>{{project.description}}</p>
 
-        <a [href]="project.link" mat-button class="mat-primary">View Live Link</a>
+        <a [href]="project.link" target="_blank" mat-button class="mat-primary"><mat-icon>link</mat-icon> View Link</a>
       </div>
 
       <mat-divider vertical="true"></mat-divider>
@@ -26,5 +26,9 @@
         </mat-list>
       </div>
     </div>
+  </div>
+
+  <div mat-dialog-actions fxLayoutAlign="end">
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
   </div>
 </div>

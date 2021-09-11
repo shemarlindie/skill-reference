@@ -59,7 +59,7 @@ export class ProjectListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   showProjectDetail(project: Project) {
     const dialogRef = this.dialog.open(ProjectDetailComponent, {
-      data: {projectId: project.id}
+      data: {project: project}
     });
   }
 }

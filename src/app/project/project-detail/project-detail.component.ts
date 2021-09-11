@@ -12,25 +12,24 @@ import {fadeAnimation} from "../../app.animation";
   animations: [fadeAnimation],
 })
 export class ProjectDetailComponent implements OnInit {
-  project?: Project
-  projectId: number
+  project: Project
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: {projectId: number},
+    @Inject(MAT_DIALOG_DATA) public data: {project: Project},
     private projectService: ProjectService
   ) {
-    this.projectId = data.projectId
+    this.project = data.project
   }
 
   ngOnInit(): void {
     console.log('ngOnInit')
-    this.loadProject()
+    // this.loadProject()
   }
 
   loadProject() {
-    console.log('loading project...', this.projectId)
+    console.log('loading project...', this.project.id)
 
-    this.projectService.get(this.projectId).subscribe((data) => {
+    this.projectService.get(this.project.id).subscribe((data) => {
       console.log('got project', data)
       this.project = data
     })

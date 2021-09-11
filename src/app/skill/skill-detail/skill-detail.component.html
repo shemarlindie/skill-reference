@@ -2,7 +2,9 @@
   <h2 fxLayout="row" fxLayoutAlign="start center">
     <mat-icon><i class="devicon-{{skill.icon}}-plain colored"></i></mat-icon>
     &nbsp;
-    <span>{{skill.name}}</span>
+    <span fxFlex>{{skill.name}}</span>
+
+    <button (click)="dismissSheet()" mat-icon-button><mat-icon>close</mat-icon></button>
   </h2>
 
   <mat-action-list role="list">

@@ -16,7 +16,7 @@
         &nbsp;
         <mat-icon *ngIf="project.link">link</mat-icon>
         <span fxFlex></span>
-        <div fxLayout="row">
+        <div fxLayout="row wrap">
           <div title="{{skill.name}}" *ngFor="let skill of project.skills" class="skill-icon-list devicon-{{skill.icon}}-plain colored"></div>
         </div>
       </div>

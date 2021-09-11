@@ -15,7 +15,19 @@
   </div>
   <br>
 
-  <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="15px">
+  <div *ngIf="loading" fxLayoutAlign="center">
+    <mat-spinner diameter="40" strokeWidth="1"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading && error" @fadeAnimation fxLayoutAlign="center" class="mat-subheader mat-error">
+    <span>error loading skills</span>
+  </div>
+
+  <div *ngIf="!loading && !error && !skills.length" @fadeAnimation fxLayoutAlign="center" class="mat-subheader">
+    <span>no skills</span>
+  </div>
+
+  <div *ngIf="!loading && !error && skills.length" @fadeAnimation fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="15px">
     <mat-card class="skill-card" *ngFor="let skill of skills | filter:'name':searchText">
       <mat-card-header>
         <div mat-card-avatar>

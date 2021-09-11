@@ -7,6 +7,8 @@ A repository of your skills with project references. Built with Angular.
 
 https://skills.shemarlindie.com
 
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 ## Development server

@@ -3,6 +3,10 @@ A repository of your skills with project references. Built with Angular.
 
 ![](screenshots/skill_list.png)
 
+## Demo
+
+https://skills.shemarlindie.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 ## Development server

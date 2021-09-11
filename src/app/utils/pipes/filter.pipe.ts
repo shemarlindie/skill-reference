@@ -12,6 +12,6 @@ export class FilterPipe implements PipeTransform {
       return list
     }
 
-    return list.filter((el) => el[field].toLowerCase().indexOf(searchText) != -1)
+    return list.filter((el) => el[field].toLowerCase().indexOf(searchText.toLowerCase()) != -1)
   }
 }

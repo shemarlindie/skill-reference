@@ -3,13 +3,11 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Project} from "../project";
 import {ProjectService} from "../project.service";
-import {fadeAnimation} from "../../app.animation";
 
 @Component({
   selector: 'project-detail',
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.sass'],
-  animations: [fadeAnimation],
 })
 export class ProjectDetailComponent implements OnInit {
   project: Project

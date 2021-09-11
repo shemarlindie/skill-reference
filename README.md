@@ -1,5 +1,5 @@
 # Skill Reference
-A repository of your skills with project references. Built with Angular.
+A repository of your skills with projects as references. Built with Angular.
 
 ![](screenshots/skill_list.png)
 

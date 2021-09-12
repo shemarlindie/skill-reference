@@ -10,8 +10,15 @@
   <div fxLayout="column">
     <div fxLayoutAlign="center">
       <mat-button-toggle-group [(ngModel)]="currentSection" (change)="sectionChange($event)" class="section-toggles" name="sectionToggle" aria-label="Section Toggle">
-        <mat-button-toggle value="skills"><mat-icon>computer</mat-icon>&nbsp; Skills</mat-button-toggle>
-        <mat-button-toggle value="projects"><mat-icon>work_outline</mat-icon>&nbsp; Projects</mat-button-toggle>
+        <mat-button-toggle
+          angulartics2On="click"
+          angularticsAction="view skill section"
+          value="skills"><mat-icon>computer</mat-icon>&nbsp; Skills</mat-button-toggle>
+
+        <mat-button-toggle
+          angulartics2On="click"
+          angularticsAction="view project section"
+          value="projects"><mat-icon>work_outline</mat-icon>&nbsp; Projects</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
 

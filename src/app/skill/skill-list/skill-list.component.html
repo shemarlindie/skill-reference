@@ -4,11 +4,19 @@
     <mat-icon>search</mat-icon>
     <mat-form-field fxFlex="40" fxFlex.lt-md="80" appearance="standard" floatLabel="never">
 <!--      <mat-label>Search skills...</mat-label>-->
-      <input matInput #searchInput type="search" autocomplete="off" placeholder="Search skills..."
+      <input
+        angulartics2On="click"
+        angularticsAction="click skill search"
+        angularticsCategory="skills"
+        matInput #searchInput type="search" autocomplete="off" placeholder="Search skills..."
              [(ngModel)]="searchText"
              tabindex="-1"
              autofocus>
-      <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchClick($event)">
+      <button
+        angulartics2On="click"
+        angularticsAction="clear skill search"
+        angularticsCategory="skills"
+        *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchClick($event)">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -38,7 +46,12 @@
         <mat-card-subtitle>{{skill.project_count}} project(s)</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions fxLayout="row" fxLayoutAlign="center">
-        <button mat-button (click)="showSkillDetail(skill)" class="mat-primary">View Projects</button>
+        <button
+          angulartics2On="click"
+          angularticsAction="view project list"
+          [angularticsLabel]="skill.name"
+          angularticsCategory="skills"
+          mat-button (click)="showSkillDetail(skill)" class="mat-primary">View Projects</button>
       </mat-card-actions>
     </mat-card>
   </div>

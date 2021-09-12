@@ -14,9 +14,11 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {Angulartics2Module} from "angulartics2";
 
 export const GLOBAL_MODULES = [
   UtilsModule,
+  Angulartics2Module,
 
   FormsModule,
   FlexLayoutModule,

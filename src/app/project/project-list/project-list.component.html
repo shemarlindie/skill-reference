@@ -43,7 +43,12 @@
         <p>{{project.description}}</p>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <button mat-button (click)="showProjectDetail(project)" class="mat-primary">View Details</button>
+        <button
+          angulartics2On="click"
+          angularticsAction="view project detail"
+          [angularticsLabel]="project.name"
+          angularticsCategory="projects"
+          mat-button (click)="showProjectDetail(project)" class="mat-primary">View Details</button>
       </mat-card-actions>
     </mat-card>
   </div>

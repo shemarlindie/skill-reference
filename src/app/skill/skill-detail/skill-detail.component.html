@@ -20,7 +20,12 @@
   <mat-action-list *ngIf="!loading && !error && projects.length" @fadeAnimation role="list">
     <div mat-subheader>{{skill.project_count}} Project(s)</div>
     <mat-divider></mat-divider>
-    <mat-list-item *ngFor="let project of projects" (click)="showProjectDetail(project)" role="listitem">
+    <mat-list-item
+      angulartics2On="click"
+      angularticsAction="view project detail"
+      [angularticsLabel]="project.name"
+      angularticsCategory="skills"
+      *ngFor="let project of projects" (click)="showProjectDetail(project)" role="listitem">
       <div mat-line fxLayout="row" fxLayoutAlign="start center">
         <b>{{project.name}}</b>
         &nbsp;

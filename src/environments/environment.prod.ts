@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://django-api.shemarlindie.com/api'
+  apiUrl: 'http://localhost:8000/api',
+  trackingId: '',
 };
